@@ -9,7 +9,8 @@ app.use(express.json());
 
 // PostgreSQL connection
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // e.g. from Railway/Render
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false } // Supabase requires SSL
 });
 
 // Create tables if not exist
